@@ -23,40 +23,16 @@ def prompt():
     
 
 
+
+
+
 @app.route("/story")
 def show_story():
     """Show story result."""
-    
-    number = len(request.args)
-    if number <= 6:
-        text = story.generate(request.args)
-    elif number > 6 and number < 10:
-        text = story2.generate(request.args)
-    else: 
-        text = story3.generate(request.args)
-    
-    return render_template("story.html", template=text)
-    
-
-
-# @app.route("/story")
-# def show_story():
-#     """Show story result."""
-#     prompty = request.args("help_id")
-#     text = story.generate(request.args)
+    prompty = int(request.args.get("help_id"))
+    text = stories[prompty].generate(request.args)
    
-#     return render_template("story.html", template=text)
+    return render_template("story.html", template=text)
 
 
 
-# dev questions: how to import story from stories.py
-# @app.route('/story')
-# def story_result():
-#     length = len(story3.prompts)
-#     ans = {}
-#     for x in range(length):
-#         place = request.args.get(story3.prompts[x])
-#         ans[story3.prompts[x]] = place
-#     finished_story = story3.generate(ans)
-#     return render_template('story.html', template = finished_story)
-# looking at the answer, I over complicated this code, didnt know I could just do request.args() for all the args but thats okay, took a lot of trial and error to get to this point
