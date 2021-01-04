@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title%}Madlib Mania!{% endblock %}
+{% block content %} 
+    
+    <form action="/madprompt">
+    <label for="stories">Choose a Madlib:</label>
+
+    <select name="stories_selection" id="selection">
+    <option value="" disabled selected>--</option>  
+      <option value="0">Generic</option>
+      <option value="1">Phone Call</option>
+      <option value="2">Cute Zoo Story</option>
+      
+    </select>  
+    <input type="submit" value="Submit">
+    </form>
+
+ {% endblock%}
+
+
+
+
+    

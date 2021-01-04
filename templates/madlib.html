@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title%}Madlib Mania!{% endblock %}
+{% block content %} 
+    
+ 
+<form action="/story">
+ <h3>{{title}}</h3>
+   {% for blank in prompt %}
+   
+   <label for="answer">{{blank.replace("_"," ")}}:</label>
+  
+   <input type="text" name="{{blank}}">
+   <br>
+   
+   {% endfor%}
+   
+   <input type="hidden" name="story_id" value="{{help_id}}">
+   
+    <button>Submit!</button>
+
+    {% endblock%}
